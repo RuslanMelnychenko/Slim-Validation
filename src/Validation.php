@@ -94,7 +94,7 @@ class Validation
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke($request, $response, $next)
+    public function __invoke($request, $handler)
     {
         $this->errors = [];
         $params = $request->getParams();
@@ -106,7 +106,7 @@ class Validation
         $request = $request->withAttribute($this->validators_name, $this->getValidators());
         $request = $request->withAttribute($this->translator_name, $this->getTranslator());
 
-        return $next($request, $response);
+        return $handler->handle($request);
     }
 
     /**
