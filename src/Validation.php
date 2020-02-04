@@ -117,7 +117,7 @@ class Validation
      * @param array $validators The array of validators.
      * @param array $actualKeys An array that will save all the keys of the tree to retrieve the correct value.
      */
-    private function validate($params = [], $validators = [], $actualKeys = [])
+    protected function validate($params = [], $validators = [], $actualKeys = [])
     {
         //Validate every parameters in the validators array
         foreach ($validators as $key => $validator) {
@@ -149,7 +149,7 @@ class Validation
      *
      * @return mixed The nested parameter value by the given params and tree of keys.
      */
-    private function getNestedParam($params = [], $keys = [])
+    protected function getNestedParam($params = [], $keys = [])
     {
         if (empty($keys)) {
             return $params;
@@ -173,7 +173,7 @@ class Validation
      *
      * @return boolean Returns true if the given $params parameter is array like.
      */
-    private function isArrayLike($params)
+    protected function isArrayLike($params)
     {
         return is_array($params) || $params instanceof \SimpleXMLElement;
     }
@@ -183,7 +183,7 @@ class Validation
      *
      * @return bool
      */
-    public function hasErrors()
+    protected function hasErrors()
     {
         return !empty($this->errors);
     }
