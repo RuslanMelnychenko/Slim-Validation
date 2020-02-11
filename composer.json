@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "slim/slim": "~3.0",
+        "slim/http": "^0.8.0",
         "phpunit/phpunit": "^4.0",
         "scrutinizer/ocular": "~1.1"
     },
